@@ -11,9 +11,10 @@
 </ion-header>
 
 <ion-content padding>
-    <ion-item>
-        <ion-label>Select Rev Centers</ion-label>
-          <ion-checkbox *ngFor="let revcenter of list" value="{{revcenter.revcenter_ID}}">{{revcenter.revcenter_name}}</ion-checkbox>
+    <ion-label>Select Rev Centers</ion-label>
+    <ion-item *ngFor="let revcenter of list">
+        <ion-label>{{revcenter.revcenter_name}}</ion-label>
+          <ion-checkbox></ion-checkbox>
       </ion-item>
    
 

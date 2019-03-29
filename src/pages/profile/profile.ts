@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PhpServerProvider } from '../../providers/php-server/php-server';
 import { sendDetails } from '../../Models/sendDetails.model';
+import{AddRevcenterPage} from '../../pages/add-revcenter/add-revcenter'
 /**
  * Generated class for the ProfilePage page.
  *
@@ -46,6 +47,9 @@ this.PhpServer.getLessonsPerUser(this.sendDetails,'m/reviewee/getLessonsPerUser'
   this.lessonsdata=this.lessons;
 })
 
+    }
+    AddRevcenter(){
+      this.navCtrl.push(AddRevcenterPage);
     }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
