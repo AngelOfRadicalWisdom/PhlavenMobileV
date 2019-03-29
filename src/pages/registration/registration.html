@@ -1,0 +1,76 @@
+<!--
+  Generated template for the RegistrationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title>Registration</ion-title>
+   <ion-item> <ul class="userheader">
+    <li class="logo"><a href="http://localhost:8000/reviewee/home" class="header-link"><b>Phlaven</b></a></li>
+     <li  class="menuright"><a href="http://localhost:8000/reviewee/learningpath/selection" class="header-link">Learning Path</a></li>
+      <li><a href="http://localhost:8000/reviewee/profile" class="header-link">Profile</a></li>
+      <li><a href="http://localhost:8000/logout" class="header-link">Logout</a></li>
+      
+    </ul>
+    </ion-item> -->
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" [(ngModel)]="UserData.username" ></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="UserData.password"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Confirm Password</ion-label>
+          <ion-input type="password" [(ngModel)]="UserData.cpass"></ion-input>
+        </ion-item>
+
+
+
+        <ion-item>
+          <ion-label floating>First Name</ion-label>
+          <ion-input type="text"[(ngModel)]="UserData.fname" ></ion-input> 
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Last Name</ion-label>
+          <ion-input type="text"[(ngModel)]="UserData.lname" > </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>E-mail</ion-label>
+          <ion-input type="email" [(ngModel)]="UserData.email" ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Gender</ion-label>
+          <ion-select [(ngModel)]="UserData.gender" >
+            <ion-option value="Female">Female</ion-option>
+            <ion-option value="Male">Male</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label>Select Rev Centers</ion-label>
+            <ion-select [(ngModel)]="UserData.revcenter" >
+              <ion-option *ngFor="let revcenter of list" value="{{revcenter.revcenter_ID}}">{{revcenter.revcenter_name}}</ion-option>
+
+            </ion-select>
+          </ion-item>
+       
+          <div padding>
+            <button ion-button (click)="signup()">Register</button>
+          </div>
+        
+        </ion-list>
+
+</ion-content>

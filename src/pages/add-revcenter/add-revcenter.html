@@ -1,0 +1,23 @@
+<!--
+  Generated template for the AddRevcenterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>AddRevcenter</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Select Rev Centers</ion-label>
+          <ion-checkbox *ngFor="let revcenter of list" value="{{revcenter.revcenter_ID}}">{{revcenter.revcenter_name}}</ion-checkbox>
+      </ion-item>
+   
+
+      <div padding>
+          <button ion-button (click)="updateRevCenter()">Add Revcenter</button>
+        </div>
+</ion-content>        

@@ -1,0 +1,80 @@
+<!--
+  Generated template for the LearningpathvisualizationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>learningpathvisualization</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content  >
+
+        <!-- <ion-grid width="100%">
+          <ion-row>
+            <ion-col width="25%"></ion-col>
+            <ion-col width="25%"></ion-col>
+            <ion-col width="25%"></ion-col>
+            <ion-col width="25%"></ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col><a click()="gotoMock()"><h4 class="fontsize">Mock Exam</h4></a></ion-col>
+          </ion-row>
+          
+          @foreach($nodes as $node)
+          @foreach($learningpathnodes as $learningpathnode)
+            @if($node->chapter_ID == $learningpathnode->chapter_ID)
+            @if($learningpathnode->parent_ID == "Mock")
+            <ion-row>
+              <ion-col style="background-color:#585858"></ion-col>
+              <ion-col style="background-color:#585858"></ion-col>
+              <ion-col style="background-color:#585858;color:white;text-align:right" colspan="2"><a href="http://localhost:8000/reviewee/learningpath/startnode/{{$learningpathnode->learningpathnode_ID}}" style="color:white"><h4 class="fontsize">{{$node->chapter_name}}&nbsp;&nbsp;</h4></a></ion-col>
+  
+            </ion-row>
+   -->
+              <!--Printing of Chapter Subnodes-->
+              <!-- @foreach($learningpathnodes as $subnoderow1)
+              
+              @if($learningpathnode->learningpathnode_ID == $subnoderow1->parent_ID)
+              <ion-row>
+              <ion-col style="background-color:#585858"></ion-col>
+              <ion-col style="background-color:#585858;color:white;text-align:center" colspan="2"><a href="http://localhost:8000/reviewee/learningpath/startnode/{{$subnoderow1->learningpathnode_ID}}" style="color:white"><h4 class="fontsize">{{$subnoderow1->chapters->chapter_name}}</h4></a></ion-col>
+              <ion-col style="background-color:#585858"></ion-col>
+              </ion-row>
+   -->
+              <!--Printing of Chapter Subnodes-->
+              <!-- @foreach($learningpathnodes as $subnoderow2)
+              @if($subnoderow1->learningpathnode_ID == $subnoderow2->parent_ID)
+              <ion-row>
+              <ion-col style="background-color:#585858;color:white;text-align:left" colspan="2"><a href="http://localhost:8000/reviewee/learningpath/startnode/{{$subnoderow2->learningpathnode_ID}}" style="color:white"><h4 class="fontsize">{{$subnoderow2->chapters->chapter_name}}</h4></a></ion-col>
+              <ion-col style="background-color:#585858"></ion-col>
+              <ion-col style="background-color:#585858"></ion-col>
+              </ion-row>
+              @endif()
+            @endforeach()
+              @endif()
+            @endforeach()
+            @endif()
+            @endif()
+            
+          @endforeach()
+        @endforeach()
+        </ion-grid> -->
+        <div *ngFor="let learningpath of learningpathdata">
+        <!-- <input type="hidden" value="learningpath.learningpath_ID" [(ngModel)]="learningPath.learningPathID"> -->
+   <div *ngIf="learningpath.status==0">
+     <div>
+     <h1>It seems like you haven't take the diagnostic Exam Yet</h1>
+     <button ion-button button-full (click)="gotoDiag()">Go to Diag</button>
+     </div>
+     </div>
+   <div>
+     <button ion-button button-full *ngIf="learningpath.status!=0" (click)="StartChapter()">{{learningpath.chapter_name}}</button>
+</div>
+ </div>
+        </ion-content>
+ 
