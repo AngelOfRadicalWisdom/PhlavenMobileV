@@ -86,23 +86,39 @@ export class DiagnosticexamPage {
       console.log(this.answers);
     }
   }
-    sendAnswers(examID){
-      //convert answers array to JSON object
-      var stringToParse = '{ "username":'+'"'+this.Answercouplets.username+'"'+","+'"revcenter":'+'"'+this.Answercouplets.revcenter+'"'+","+'"count":'+'"'+this.answers.length+'"'+","+'"question":[';
-      for(var i =0; i<this.answers.length; i++){
-        stringToParse = stringToParse + '{ "questionid" : ' + '"' + this.answers[i].questionid + '",' + '"answerid" :' + '"' + this.answers[i].answerid + '" '+","+'"examID":'+'"'+this.answers[i].examID+'"}';
-        if(i<this.answers.length-1){
-          stringToParse = stringToParse +  ",";
-        }
-       // console.log(stringToParse);
-      }
+    sendAnswers(){
 
-      stringToParse = stringToParse + ']}';
-      console.log(stringToParse);
-     let obj =  JSON.parse(stringToParse);
-      console.log(obj);
-    
+      //convert answers array to JSON object
+    //   var stringToParse = '{ "username":'+'"'+this.Answercouplets.username+'"'+","+'"revcenter":'+'"'+this.Answercouplets.revcenter+'"'+","+'"count":'+'"'+this.answers.length+'"'+","+'"question":[';
+    //   for(var i =0; i<this.answers.length; i++){
+    //     stringToParse = stringToParse + '{ "questionid" : ' + '"' + this.answers[i].questionid + '",' + '"answerid" :' + '"' + this.answers[i].answerid + '" '+","+'"examID":'+'"'+this.answers[i].examID+'"}';
+    //     if(i<this.answers.length-1){
+    //       stringToParse = stringToParse +  ",";
+    //     }
+    //    // console.log(stringToParse);
+    //   }
+
+    //   stringToParse = stringToParse + ']}';
+    //   console.log(stringToParse);
+    //  let obj =  JSON.parse(stringToParse);
+    //   console.log(obj);
+    for(var i=0;i<this.answers.length;i++){
+      let obj={
+        username:this.Answercouplets.username,
+        revcenter:this.Answercouplets.revcenter,
+        questions:[{
+              question:this.answers[i].questionid,
+              answerid:this.answers[i].answerid,
+              examid:this.answers[i].examID
+
+        }]
     }
+    let sendanswers=JSON.stringify(obj);
+   console.log(sendanswers) ;
+  }
+
+}
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DiagnosticexamPage');
